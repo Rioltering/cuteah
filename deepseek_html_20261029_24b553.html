@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, My Love 💖</title>
+  <!-- Google Fonts for a cute, handwritten style -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- CSS reset & base ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #fdeff4 0%, #ffe4e9 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden; /* prevent scrollbars from floating hearts */
+      position: relative;
+    }
+
+    /* ---------- Main card ---------- */
+    .card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 40px;
+      padding: 2.5rem 2rem;
+      max-width: 520px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 25px 40px -12px rgba(200, 100, 120, 0.4),
+                  0 0 0 2px rgba(255, 255, 255, 0.5) inset;
+      border: 1px solid rgba(255, 220, 230, 0.8);
+      z-index: 10;
+      transition: transform 0.3s ease;
+      animation: softAppear 0.9s cubic-bezier(0.2, 0.9, 0.3, 1.1) forwards;
+      transform: scale(0.92);
+      opacity: 0;
+    }
+
+    @keyframes softAppear {
+      0% { opacity: 0; transform: scale(0.92); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* ---------- Typography ---------- */
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #b3405a;
+      margin-bottom: 0.25rem;
+      line-height: 1.2;
+      text-shadow: 2px 2px 8px rgba(255, 200, 210, 0.8);
+      letter-spacing: 1px;
+    }
+
+    .subhead {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #a1566b;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px dashed #f0b6c8;
+      padding-bottom: 0.75rem;
+    }
+
+    .message {
+      font-size: 1.25rem;
+      line-height: 1.7;
+      color: #5f3e4b;
+      background: #fff6f9;
+      padding: 1.5rem 1.2rem;
+      border-radius: 28px;
+      margin: 1.5rem 0 1.2rem;
+      box-shadow: 0 6px 14px rgba(230, 150, 170, 0.15) inset;
+      border: 1px solid #ffdae4;
+      font-weight: 400;
+      word-break: break-word;
+    }
+
+    .highlight {
+      font-weight: 600;
+      color: #c64b6e;
+    }
+
+    /* ---------- Button / cute interaction ---------- */
+    .heart-btn {
+      background: #ffb6c9;
+      border: none;
+      font-size: 1.5rem;
+      padding: 0.9rem 1.8rem;
+      border-radius: 60px;
+      color: #7a2e45;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 1px;
+      cursor: pointer;
+      box-shadow: 0 10px 20px -8px #d97a95, 0 0 0 2px #fff9fb;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    .heart-btn:hover {
+      background: #ff9bb5;
+      box-shadow: 0 15px 25px -6px #d45f82, 0 0 0 3px #ffeef4;
+      transform: scale(1.02);
+    }
+
+    .heart-btn:active {
+      transform: scale(0.97);
+      box-shadow: 0 6px 12px -4px #c45173;
+    }
+
+    /* ---------- Footer note (personal) ---------- */
+    .footer-note {
+      font-size: 0.85rem;
+      color: #b98a9b;
+      margin-top: 1.2rem;
+      font-style: italic;
+      letter-spacing: 0.3px;
+    }
+
+    /* ---------- Floating hearts background ---------- */
+    .floating-heart {
+      position: absolute;
+      font-size: 1.8rem;
+      opacity: 0.7;
+      user-select: none;
+      pointer-events: none;
+      animation: floatUp 8s infinite ease-in-out;
+      z-index: 1;
+      filter: drop-shadow(0 4px 6px rgba(200, 100, 120, 0.25));
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(10vh) scale(0.9) rotate(0deg);
+        opacity: 0.6;
+      }
+      50% {
+        transform: translateY(-10vh) scale(1.3) rotate(10deg);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(-30vh) scale(0.9) rotate(-5deg);
+        opacity: 0;
+      }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 480px) {
+      .card {
+        padding: 1.8rem 1.2rem;
+        border-radius: 32px;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+      .message {
+        font-size: 1.1rem;
+        padding: 1.2rem 1rem;
+      }
+      .heart-btn {
+        font-size: 1.3rem;
+        padding: 0.75rem 1.2rem;
+      }
+    }
+
+    /* extra little animation for the button heart */
+    .btn-icon {
+      display: inline-block;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <!-- 🎈 Floating hearts will be inserted by JS -->
+  
+  <div class="card">
+    <h1>Happy Birthday!</h1>
+    <div class="subhead">to my favorite person</div>
+    
+    <div class="message">
+      <span class="highlight">💕 My dearest love, 💕</span><br><br>
+      Today is all about you. Thank you for being the light in my life, 
+      for your laugh, your kindness, and your endless beauty — inside and out.<br><br>
+      I made this little corner of the internet just for you.<br>
+      <span style="font-size: 1.8rem; display: block; margin-top: 12px;">🌸✨🎂✨🌸</span>
+    </div>
+
+    <button class="heart-btn" id="loveButton">
+      <span class="btn-icon">❤️</span> Send Love <span class="btn-icon">❤️</span>
+    </button>
+    
+    <div class="footer-note">
+      — made with love, just for you —
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // ---------- 1. FLOATING HEARTS BACKGROUND (cute ambience) ----------
+      const heartEmojis = ['❤️', '💖', '💗', '💓', '💕', '🌸', '✨', '💘', '💝'];
+      const numHearts = 24;  // plenty of hearts but not overwhelming
+
+      // Create and scatter hearts randomly
+      for (let i = 0; i < numHearts; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('floating-heart');
+        
+        // Random emoji from the list
+        heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+        
+        // Random horizontal position
+        const leftPos = Math.random() * 100; // 0% to 100%
+        heart.style.left = leftPos + '%';
+        
+        // Random vertical start (below viewport to start, or spread)
+        const topPos = Math.random() * 100; // 0–100vh
+        heart.style.top = topPos + 'vh';
+        
+        // Random size
+        const size = 1.2 + Math.random() * 2.2; // 1.2rem to 3.4rem
+        heart.style.fontSize = size + 'rem';
+        
+        // Random animation duration & delay
+        const duration = 7 + Math.random() * 10; // 7–17s
+        heart.style.animationDuration = duration + 's';
+        
+        // Random delay (negative so they start at different phases)
+        heart.style.animationDelay = (Math.random() * -20) + 's';
+        
+        // Random opacity multiplier via inline style (but animation also handles opacity)
+        heart.style.opacity = 0.5 + Math.random() * 0.5;
+        
+        document.body.appendChild(heart);
+      }
+
+      // ---------- 2. BUTTON INTERACTION (sweet surprise) ----------
+      const loveBtn = document.getElementById('loveButton');
+
+      // Cute messages that appear when clicked
+      const sweetMessages = [
+        "I love you more than words can say 💖",
+        "You're my favorite hello and my hardest goodbye 🌸",
+        "Every moment with you is a gift 🎁",
+        "You make my heart smile 😊💕",
+        "Forever and always, my love ✨",
+        "You're the best thing that ever happened to me 💘",
+        "Happy birthday, my beautiful girl 🎂💗",
+        "I'm so lucky to have you 🥰",
+        "You + Me = ❤️",
+        "Sending you a million kisses 😘💋"
+      ];
+
+      // Keep track of last message to avoid immediate repeat
+      let lastMessageIndex = -1;
+
+      loveBtn.addEventListener('click', function() {
+        // Pick a random message (avoid same as last if possible)
+        let randomIndex;
+        do {
+          randomIndex = Math.floor(Math.random() * sweetMessages.length);
+        } while (sweetMessages.length > 1 && randomIndex === lastMessageIndex);
+        
+        lastMessageIndex = randomIndex;
+        const message = sweetMessages[randomIndex];
+
+        // ----- Create a floating bubble with the message -----
+        const bubble = document.createElement('div');
+        bubble.textContent = message;
+        
+        // Style the bubble – cute pop-up
+        bubble.style.position = 'fixed';
+        bubble.style.left = '50%';
+        bubble.style.top = '50%';
+        bubble.style.transform = 'translate(-50%, -50%) scale(0.8)';
+        bubble.style.background = 'rgba(255, 240, 245, 0.95)';
+        bubble.style.backdropFilter = 'blur(6px)';
+        bubble.style.padding = '1.2rem 2rem';
+        bubble.style.borderRadius = '50px';
+        bubble.style.boxShadow = '0 20px 40px rgba(200, 80, 120, 0.4), 0 0 0 2px #fff0f5';
+        bubble.style.color = '#8b3a4f';
+        bubble.style.fontWeight = '600';
+        bubble.style.fontSize = '1.2rem';
+        bubble.style.fontFamily = "'Poppins', sans-serif";
+        bubble.style.textAlign = 'center';
+        bubble.style.maxWidth = '80vw';
+        bubble.style.width = 'max-content';
+        bubble.style.zIndex = '9999';
+        bubble.style.pointerEvents = 'none';
+        bubble.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease';
+        bubble.style.opacity = '0';
+        bubble.style.whiteSpace = 'nowrap';
+        
+        // For very long messages, allow wrap on small screens
+        if (message.length > 25) {
+          bubble.style.whiteSpace = 'normal';
+          bubble.style.maxWidth = '75vw';
+        }
+        
+        document.body.appendChild(bubble);
+        
+        // Animate in (pop)
+        requestAnimationFrame(() => {
+          bubble.style.transform = 'translate(-50%, -50%) scale(1)';
+          bubble.style.opacity = '1';
+        });
+        
+        // After 2.2 seconds, fade out and remove
+        setTimeout(() => {
+          bubble.style.transform = 'translate(-50%, -60%) scale(0.9)';
+          bubble.style.opacity = '0';
+          setTimeout(() => {
+            if (bubble.parentNode) {
+              bubble.remove();
+            }
+          }, 500);
+        }, 2200);
+
+        // ----- Also spawn a few tiny hearts around the button (extra cuteness) -----
+        for (let i = 0; i < 6; i++) {
+          const tinyHeart = document.createElement('div');
+          tinyHeart.textContent = ['❤️', '💖', '💗', '🌸', '✨'][Math.floor(Math.random() * 5)];
+          tinyHeart.style.position = 'fixed';
+          tinyHeart.style.left = '50%';
+          tinyHeart.style.top = '50%';
+          tinyHeart.style.fontSize = (0.8 + Math.random() * 1.5) + 'rem';
+          tinyHeart.style.pointerEvents = 'none';
+          tinyHeart.style.zIndex = '10000';
+          tinyHeart.style.userSelect = 'none';
+          tinyHeart.style.transition = 'transform 0.7s ease-out, opacity 0.7s ease-out';
+          tinyHeart.style.opacity = '1';
+          
+          // Random direction
+          const angle = Math.random() * 2 * Math.PI;
+          const distance = 70 + Math.random() * 120;
+          const dx = Math.cos(angle) * distance;
+          const dy = Math.sin(angle) * distance;
+          
+          document.body.appendChild(tinyHeart);
+          
+          // Trigger animation
+          requestAnimationFrame(() => {
+            tinyHeart.style.transform = `translate(${dx}px, ${dy}px) scale(1.6) rotate(${Math.random() * 60 - 30}deg)`;
+            tinyHeart.style.opacity = '0';
+          });
+          
+          // Remove after animation
+          setTimeout(() => {
+            if (tinyHeart.parentNode) {
+              tinyHeart.remove();
+            }
+          }, 700);
+        }
+      });
+
+      // ---------- 3. EXTRA: change button text on click (just for fun) ----------
+      // We'll keep it subtle: after click, briefly show a different heart
+      loveBtn.addEventListener('click', function() {
+        const originalHTML = loveBtn.innerHTML;
+        loveBtn.innerHTML = '<span class="btn-icon">💖</span> love you! <span class="btn-icon">💖</span>';
+        setTimeout(() => {
+          loveBtn.innerHTML = originalHTML;
+        }, 700);
+      });
+    })();
+  </script>
+</body>
+</html>
